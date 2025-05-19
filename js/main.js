@@ -3,8 +3,15 @@
 
   // preloader
   $(window).on("load", function () {
+    // اختفاء اللودر بعد انتهاء التحميل
     $(".preloader").fadeOut("slow");
   });
+
+  // في حالة التحميل استغرق وقت طويل، نخليه يختفي بعد 6 ثواني بأي حال
+  setTimeout(function () {
+    $(".preloader").fadeOut("slow");
+  }, 6000); // 6000 ملي ثانية = 6 ثواني
+
 
   // multi level dropdown menu
   $(".dropdown-menu a.dropdown-toggle").on("click", function (e) {
@@ -309,14 +316,14 @@
       $(this).html(
         event.strftime(
           '<div class="time-wrap">' +
-            '<span class="time"><span>%-D</span><span class="unit">Day%!D</span></span>' +
-            ' <span class="divider">:</span> ' +
-            '<span class="time"><span>%H</span><span class="unit">Hour%!H</span></span>' +
-            ' <span class="divider">:</span> ' +
-            '<span class="time"><span>%M</span><span class="unit">Min%!M</span></span>' +
-            ' <span class="divider">:</span> ' +
-            '<span class="time"><span>%S</span><span class="unit">Sec%!S</span></span>' +
-            "</div>"
+          '<span class="time"><span>%-D</span><span class="unit">Day%!D</span></span>' +
+          ' <span class="divider">:</span> ' +
+          '<span class="time"><span>%H</span><span class="unit">Hour%!H</span></span>' +
+          ' <span class="divider">:</span> ' +
+          '<span class="time"><span>%M</span><span class="unit">Min%!M</span></span>' +
+          ' <span class="divider">:</span> ' +
+          '<span class="time"><span>%S</span><span class="unit">Sec%!S</span></span>' +
+          "</div>"
         )
       );
     });
